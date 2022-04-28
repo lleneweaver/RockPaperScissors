@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var paperImage: UIImageView!
     @IBOutlet weak var scissorImage: UIImageView!
     @IBOutlet weak var winLoseLabel: UILabel!
-    
+    let url = URL(string: "https://wrpsa.com/the-official-rules-of-rock-paper-scissors/")
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,7 +26,6 @@ class ViewController: UIViewController {
       //      Int(scissorImage) = 3
      //   }
 
-        
         rockImage.isUserInteractionEnabled = true
         paperImage.isUserInteractionEnabled = true
         scissorImage.isUserInteractionEnabled = true
@@ -54,8 +53,8 @@ class ViewController: UIViewController {
     
     @IBAction func shootButtonPressed(_ sender: UIButton)
     {
-    clearScreen()
-    var random = arc4random_uniform(3) //returns 0 to 2 randomly
+
+    var random = arc4random_uniform(3) 
         switch random
         {
         case 0:
@@ -73,8 +72,19 @@ class ViewController: UIViewController {
         {
             winLoseLabel.text = "🤕 You Lost 🤕"
         }
+        if playerImage.image == UIImage (named: "rock") && computerImage.image == UIImage (named: "rock") || playerImage.image == UIImage (named: "paper") && computerImage.image == UIImage (named: "paper") || playerImage.image == UIImage (named: "scissor") && computerImage.image == UIImage (named: "scissor")
+        {
+            winLoseLabel.text = "🔄 Draw 🔄"
+        }
         
     }
+    
+    @IBAction func rulesButtonTapped(_ sender: UIButton)
+    {
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+    }
+    
+    
     
 }
 
