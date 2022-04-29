@@ -15,46 +15,63 @@ class ViewController: UIViewController {
     @IBOutlet weak var paperImage: UIImageView!
     @IBOutlet weak var scissorImage: UIImageView!
     @IBOutlet weak var winLoseLabel: UILabel!
+    
     let url = URL(string: "https://wrpsa.com/the-official-rules-of-rock-paper-scissors/")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-      //  func random ()
-      //  {
-      //       Int(rockImage) = 1
-      //      Int(paperImage) = 2
-      //      Int(scissorImage) = 3
-     //   }
-
+        rockImage.layer.cornerRadius = rockImage.bounds.width / 2
+        scissorImage.layer.cornerRadius = scissorImage.bounds.width / 2
+        paperImage.layer.cornerRadius = paperImage.bounds.width / 2
+        playerImage.layer.cornerRadius = playerImage.bounds.width / 2
+        computerImage.layer.cornerRadius = computerImage.bounds.width / 2
+        
         rockImage.isUserInteractionEnabled = true
         paperImage.isUserInteractionEnabled = true
         scissorImage.isUserInteractionEnabled = true
         
-    
     }
     @IBAction func didTapRockImage(_ sender: UITapGestureRecognizer)
     {
         playerImage.image = UIImage (named: "rock")
+        rockImage.layer.borderWidth = 5
+        rockImage.layer.borderColor = UIColor.green.cgColor
+        paperImage.layer.borderWidth = 0
+        scissorImage.layer.borderWidth = 0
     }
     @IBAction func didTapPaperImage(_ sender: UITapGestureRecognizer)
     {
         playerImage.image = UIImage (named: "paper")
+        paperImage.layer.borderWidth = 5
+        paperImage.layer.borderColor = UIColor.green.cgColor
+        rockImage.layer.borderWidth = 0
+        scissorImage.layer.borderWidth = 0
+
+
     }
     @IBAction func didTapScissorImage(_ sender: UITapGestureRecognizer)
     {
         playerImage.image = UIImage (named: "scissor")
+        scissorImage.layer.borderWidth = 5
+        scissorImage.layer.borderColor = UIColor.green.cgColor
+        paperImage.layer.borderWidth = 0
+        rockImage.layer.borderWidth = 0
+
     }
     func clearScreen()
     {
-        playerImage.image = UIImage (named: "")
-        computerImage.image = UIImage (named: "")
-        winLoseLabel.text = ""
+        rockImage.layer.borderWidth = 0
+        paperImage.layer.borderWidth = 0
+        scissorImage.layer.borderWidth = 0
+
     }
     
     @IBAction func shootButtonPressed(_ sender: UIButton)
     {
-
-    var random = arc4random_uniform(3) 
+        
+        clearScreen()
+        let random = arc4random_uniform(3)
         switch random
         {
         case 0:
@@ -87,18 +104,4 @@ class ViewController: UIViewController {
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

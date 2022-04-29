@@ -90,7 +90,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="0aR-VE-kw0">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="IiN-iY-1ND">
+                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" style="plain" id="IiN-iY-1ND">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="uy9-YD-Zdd">
                                 <rect key="frame" x="325" y="4" width="49" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -150,6 +150,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="paper" width="300" height="300"/>
         <image name="rock" width="860" height="900"/>
         <image name="scissor" width="900" height="940"/>
